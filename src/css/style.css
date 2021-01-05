@@ -1,0 +1,43 @@
+:root {
+    font-size: 16px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+#pyramid {
+    width: 500px;
+    height: 500px;
+}
+
+.pyramid-part {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: red;
+    justify-content: center;
+}
+
+.buttons-collection {
+    display: none;
+    margin: 0px auto;
+    width: 60px;
+    height: 0px;
+}
+
+.button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
