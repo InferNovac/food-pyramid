@@ -29,15 +29,10 @@ body {
     justify-content: center;
 }
 
-.buttons-collection {
-    display: none;
-    margin: 0px auto;
-    width: 60px;
-    height: 0px;
-}
-
-.button {
-    width: 20px;
-    height: 20px;
+button {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border-radius: 50%;
 }
