@@ -1,4 +1,13 @@
-import { TRAPEZOID } from "./Constant";
+const pyramidLevel = (top, bottom) => {
+    const topOffset = (100 - top) / 2;
+    const bottomOffset = (100 - bottom) / 2;
+    const topRule =
+        topOffset === 0 ? "50% 0" : `${topOffset}% 0%, ${100 - topOffset}% 0%`;
+
+    const bottomRule = `${100 - bottomOffset}% 100%, ${bottomOffset}% 100%`;
+
+    return `polygon(${topRule}, ${bottomRule});`;
+};
 
 const calculateSections = (blocks) => {
     const totalArea = blocks.reduce((total, food) => total + food.value, 0);
@@ -9,7 +18,7 @@ const calculateSections = (blocks) => {
         const areaRatio = areaSum / totalArea;
         const sizeCoefficent = Math.sqrt(areaRatio);
         const sliceHeight = sizeCoefficent - previousSizeCoefficent;
-        const path = TRAPEZOID(
+        const path = pyramidLevel(
             previousSizeCoefficent * 100,
             sizeCoefficent * 100
         );
@@ -18,6 +27,7 @@ const calculateSections = (blocks) => {
             title: food.title,
             style: `
             width: 100%;
+            shape-outside: ${path};
             clip-path: ${path};
             height: ${sliceHeight * 100}%;
             background-color: ${food.color};
@@ -46,6 +56,8 @@ const intakeUI = (id) => {
     const increase = document.createElement("button");
     const intake = document.createElement("div");
     const decrease = document.createElement("button");
+    increase.classList.add("add");
+    decrease.classList.add("minus");
     intake.setAttribute("id", intakeId);
     intake.classList.add("space-between");
     increase.textContent = "+";
@@ -64,7 +76,7 @@ export const constructPyramid = (blocks) => {
         foodBlock.style = block.style;
         foodBlock.classList.add("pyramid-part");
         const UI = intakeUI(index);
-        UI.map((element) => {
+        UI.forEach((element) => {
             foodBlock.appendChild(element);
         });
         return foodBlock;

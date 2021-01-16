@@ -8,16 +8,41 @@
 }
 
 body {
+    color: #ecf0f1;
     display: flex;
     height: 100vh;
     align-items: center;
     box-sizing: border-box;
     justify-content: center;
+    font-family: sans-serif;
+}
+
+button {
+    transition: 0.2s background-color ease-in-out;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    border: none;
 }
 
 #pyramid {
-    width: 500px;
-    height: 500px;
+    width: 900px;
+    height: 600px;
+}
+
+#pyramid-name {
+    color: #2d3436;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+#pyramid-date {
+    color: #2d3436;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .pyramid-part {
@@ -25,14 +50,18 @@ body {
     margin-left: auto;
     margin-right: auto;
     align-items: center;
-    background-color: red;
     justify-content: center;
 }
 
-button {
-    width: 2rem;
-    height: 2rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    border-radius: 50%;
+.add:active,
+.minus:active {
+    transition: 0.2s background-color ease-in-out;
+}
+
+.add:active {
+    background-color: #2ecc71;
+}
+
+.minus:active {
+    background-color: #e74c3c;
 }
