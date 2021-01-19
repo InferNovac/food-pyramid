@@ -54,7 +54,7 @@ const decreaseListener = (intakeId) => {
 const intakeUI = (id) => {
     const intakeId = `intake${id}`;
     const increase = document.createElement("button");
-    const intake = document.createElement("div");
+    const intake = document.createElement("h1");
     const decrease = document.createElement("button");
     increase.classList.add("add");
     decrease.classList.add("minus");
